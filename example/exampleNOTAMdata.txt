@@ -1,0 +1,10 @@
+! CMH 03/166 CMH OBST CRANE (ASN 2025-AGL-117-NRA) 395949N0825418W (0.6NM W CMH) 957FT (150FT AGL) FLAGGED AND LGTD 2507172220-2607240400
+CMH = Accountability - Airport that issued NOTAM
+2nd CMH = Location Identifier - Deals with issue near airport
+OBST CRANE = Obstacle Type
+395949N0825418W = Exact location
+0.6NM W CMH = Relative location (usually in parenthesis)
+957FT = True height
+150FT AGL = Height above ground level
+FLAGGED AND LGTD = Obstacle info, can be U/S for unserviceable
+2507172220-2607240400 = Time period
