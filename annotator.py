@@ -21,6 +21,8 @@ with open("NOTAM.txt", "w") as file:
         string = "".join(current.splitlines())
         if i < len(df['Unnamed: 6']) - 1:
             string += "\n"
+
+        # HANDLING FOR OBST WIND TURBINE FARM WI AN AREA DEFINED AS 4.5NM RADIUS OF 444703N0711734W
         if " SEE LGA " in string:
             string = ""
 
@@ -55,7 +57,6 @@ with open("NOTAM.txt", "r") as file:
 
         entities.append([count,line.find(" ", count),"LOCATION_IDENT"])
 
-        #NEED HANDLING FOR OBST WIND TURBINE FARM WI AN AREA DEFINED AS 4.5NM RADIUS OF 444703N0711734W
         # OBST_TYPE
         count = line.find(" ", count) + 1
         while line[count] != " ":
