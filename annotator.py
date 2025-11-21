@@ -22,8 +22,8 @@ with open("NOTAM.txt", "w") as file:
         if i < len(df['Unnamed: 6']) - 1:
             string += "\n"
 
-        # HANDLING FOR OBST WIND TURBINE FARM WI AN AREA DEFINED AS 4.5NM RADIUS OF 444703N0711734W
-        if " SEE LGA " in string:
+        # do not include NOTAMs with references to other NOTAMs or missing ASN/ASR
+        if " SEE LGA " in string or " SEE WHP " in string or (not "(ASN " in string and not "(ASR " in string and not " WI " in string):
             string = ""
 
         file.write(string)
@@ -63,12 +63,14 @@ with open("NOTAM.txt", "r") as file:
             count += 1
         count += 1
 
+        # HANDLING FOR OBST WIND TURBINE FARM WI AN AREA DEFINED AS 4.5NM RADIUS OF 444703N0711734W
         if " WI " in line:
             entities.append([count,line.find(" WI ", count),"OBST_TYPE"])
         else:
             entities.append([count,line.find("(", count) - 1,"OBST_TYPE"])
 
         # LOCATION_EXACT,
+        # HANDLING FOR OBST WIND TURBINE FARM WI AN AREA DEFINED AS 4.5NM RADIUS OF 444703N0711734W
         if " WI " in line:
             count = line.find(" OF ", count) + 4
         else:
